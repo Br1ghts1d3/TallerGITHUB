@@ -1,0 +1,21 @@
+name: Build en DEV_EEOL
+
+on:
+  push:
+    branches:
+      - DEV_EEOL
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout código
+      uses: actions/checkout@v2
+      with:
+        repository: Br1ghts1d3/TallerGITHUB
+        ref: DEV_EEOL
+
+    - name: Build with Maven
+      run: mvn -B package --file hola-mundo/pom.xml
